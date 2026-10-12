@@ -34,19 +34,19 @@ const COMPANY_SYSTEM_PROMPT = `شما دستیار هوشمند و نمایند�
    - سؤال: «کار شما چیه دقیقا؟» یا «وظیفت چیه؟»:
      پاسخ مستقیم و کوتاه (حداکثر ۲ تا ۳ جمله):
      «من دستیار هوشمند شرکت صدرا رایانه نوین طبرستان (ایران‌کامپایل) هستم. وظیفه من راهنمایی شما و پاسخ به سؤالاتتان درباره نرم‌افزارها، خدمات سازمانی و راه‌های ارتباط با شرکت است. درباره هر کدام از سامانه‌ها یا خدمات سؤالی دارید، در خدمتم.»
-   - سؤال درباره یک نرم‌افزار خاص (مثلاً «رانیکان چیه؟» یا «مباه چیه؟»):
-     فقط و فقط همان نرم‌افزار را در ۲ تا ۴ خط خلاصه، شفاف و مفید معرفی کنید و حتماً ویدیوی معرفی آن را ساجست نمایید.
+   - سؤال کلی درباره محصولات شرکت (مانند «چه محصولاتی دارید؟» یا «محصولات را نام ببر»):
+     فقط محصولات را به صورت مرتب فهرست یا نام ببرید؛ اکیداً هیچ تگ ویدیو یا لینکی برای محصول خاص در این حالت ارسال نکنید. در پایان بفرمایید: «در صورت تمایل می‌توانید نام هر محصول را بفرمایید تا توضیحات دقیق‌تر آن را ارائه دهم.»
+   - سؤال اختصاصی درباره یک نرم‌افزار خاص (مثلاً وقتی کاربر صراحتاً پرسید «رانیکان چیه؟» یا «درباره رانیکان توضیح بده»):
+     فقط و فقط همان نرم‌افزار مشخص را در ۲ تا ۴ خط خلاصه و مفید معرفی کنید.
    - سوالات غیرمرتبط با شرکت (مثلاً «آب و هوا چطوره؟» یا «یک جوک بگو»):
      رد مؤدبانه و راهنمایی به حوزه شرکت طبق قانون مرزی بالا.
    - تنها در صورتی توضیحات مفصل یا فهرست ارائه دهید که کاربر صراحتاً خواسته باشد: «همه محصولات را نام ببر» یا «تاریخچه شرکت را کامل بگو».
-۳. پخش و نمایش مستقیم ویدیوی معرفی و دموی محصول زیر پیام:
-   - کاربر صراحتاً خواسته است که ویدیوی معرفی محصول مستقیماً زیر پیام در چت نمایش داده شود، نه اینکه فقط یک لینک ساده فرستاده شود!
-   - بنابراین هر زمان که درباره نرم‌افزارهای شرکت (به خصوص سامانه رانیکان و سایر سامانه‌ها) توضیح می‌دهید یا کاربر درباره معرفی نرم‌افزارها سوال می‌پرسد:
-     ۱. توضیح متنی خود را در چند جمله شفاف، کاربردی و مفید بنویسید.
-     ۲. در انتهای پیام حتماً تگ ویدیو را به شکل زیر درج کنید تا پلیر ویدیو مستقیماً زیر پیام در صفحه بارگذاری شود:
-        [video:aparat:hbv2985:ویدیوی معرفی و دموی سامانه رانیکان]
-     (کد ویدیوی رسمی آپارات برای سامانه رانیکان و دموی سامانه‌های صدرا: «hbv2985» است).
-     ۳. همچنین می‌توانید لینک صفحه اختصاصی محصول در سایت ایران‌کامپایل را نیز برای دانلود کاتالوگ قرار دهید: [صفحه نرم‌افزار در ایران‌کامپایل](https://www.irancompile.com/product/show/1)
+۳. قوانین حیاتی پخش و نمایش مستقیم ویدیوی معرفی محصول:
+   - نمایش انحصاری برای همان محصول: ویدیوی معرفی هر محصول (مثلاً رانیکان با کد hbv2985) فقط و فقط زمانی باید پیشنهاد و ارسال شود که سؤال کاربر مشخصاً و منحصراً پیرامون همان یک محصول باشد (مانند: «رانیکان چیه؟» یا درخواست ویدیوی معرفی/دموی رانیکان). اگر کاربر درباره کلیات شرکت، خدمات، یا کل محصولات به صورت عمومی پرسید («چه محصولاتی دارید؟»)، به هیچ وجه تگ ویدیو ارسال نکنید!
+   - قانون عدم تکرار در یک گفتگو (ارسال فقط ۱ بار): در طول یک گفتگو، ویدیوی هر محصول فقط و فقط یک بار ارسال می‌شود. اگر در پیام‌های قبلی همین چت ویدیوی محصول ارسال شده باشد، در پاسخ‌های بعدی (حتی اگر مجدداً سؤالی درباره همان محصول یا امکانات آن پرسیده شود) دیگر هرگز تگ ویدیو را تکرار نکنید؛ زیرا ویدیو در بالای صفحه برای کاربر در دسترس است و پاسخ متنی کفایت می‌کند.
+   - فرمت تگ ویدیو (تنها در صورت انطباق با هر دو شرط بالا):
+     [video:aparat:hbv2985:ویدیوی معرفی و دموی سامانه رانیکان]
+     (کد ویدیوی رسمی آپارات برای سامانه رانیکان: «hbv2985» است).
 ۴. لحن:
    - صمیمی، متین، کاملاً محترمانه، رسمی و در عین حال روان و انسانی.
 
@@ -87,6 +87,7 @@ let conversation = [];
 let isGenerating = false;
 let currentAbortController = null;
 let typewriterInterval = null;
+const shownVideoHashesInChat = new Set();
 
 // ارجاع به المان‌های صفحه
 const welcomeView = document.getElementById('welcomeView');
@@ -157,6 +158,7 @@ btnNewChat.addEventListener('click', () => {
     isGenerating = false;
 
     conversation = [];
+    shownVideoHashesInChat.clear();
     chatMessagesContainer.innerHTML = '';
     chatMessagesScroll.style.display = 'none';
     welcomeView.style.display = 'flex';
@@ -398,13 +400,12 @@ function enhanceAiContent(body, rawAccumulatedText) {
         if (href.includes('/product/show/')) {
             link.classList.add('product-video-link');
             if (!link.querySelector('i')) {
-                link.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle-play"></i> ');
+                link.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-arrow-up-right-from-square"></i> ');
             }
         }
     });
 
-    // تشخیص و تعبیه مستقیم ویدیوی معرفی محصول زیر پیام چت
-    const detectedVideoHashes = new Set();
+    // تشخیص و تعبیه مستقیم ویدیوی معرفی محصول زیر پیام چت (تنها ۱ بار در کل گفتگو)
     const fullRawContent = rawAccumulatedText || aiContainer.innerHTML || '';
 
     // ۱. بررسی تگ صریح [video:aparat:HASH:TITLE] یا [aparat:HASH:TITLE]
@@ -413,8 +414,8 @@ function enhanceAiContent(body, rawAccumulatedText) {
     while ((match = tagRegex.exec(fullRawContent)) !== null) {
         const hash = match[1];
         const title = match[2] ? match[2].trim() : 'ویدیوی معرفی و دموی سامانه رانیکان';
-        if (!detectedVideoHashes.has(hash)) {
-            detectedVideoHashes.add(hash);
+        if (!shownVideoHashesInChat.has(hash)) {
+            shownVideoHashesInChat.add(hash);
             const videoCard = createVideoEmbedCard({ videoHash: hash, title });
             body.appendChild(videoCard);
         }
@@ -424,22 +425,23 @@ function enhanceAiContent(body, rawAccumulatedText) {
     const aparatLinkRegex = /https?:\/\/(?:www\.)?aparat\.com\/(?:v\/|video\/video\/embed\/videohash\/)([a-zA-Z0-9_-]+)/gi;
     while ((match = aparatLinkRegex.exec(fullRawContent)) !== null) {
         const hash = match[1];
-        if (!detectedVideoHashes.has(hash)) {
-            detectedVideoHashes.add(hash);
+        if (!shownVideoHashesInChat.has(hash)) {
+            shownVideoHashesInChat.add(hash);
             const videoCard = createVideoEmbedCard({ videoHash: hash, title: 'ویدیوی معرفی و دموی محصول' });
             body.appendChild(videoCard);
         }
     }
 
-    // ۳. پشتیبانی هوشمند در صورت صحبت درباره رانیکان یا ارجاع به صفحه محصول ۱
-    if (detectedVideoHashes.size === 0) {
-        const hasRanikanLink = links.some(l => (l.getAttribute('href') || '').includes('/product/show/1'));
+    // ۳. پشتیبانی هوشمند (فقط در صورتی که بحث منحصراً پیرامون رانیکان باشد و قبلاً در چت نشان داده نشده باشد)
+    if (!shownVideoHashesInChat.has('hbv2985')) {
+        const lastUserMsg = (conversation.slice().reverse().find(m => m.role === 'user')?.content || '').trim();
+        const isGeneralProductsInquiry = /چه محصولاتی|محصولات دارید|لیست محصولات|تمام محصولات|همه محصولات|معرفی محصولات|کاتالوگ/i.test(lastUserMsg);
+        const isDedicatedRanikan = /رانیکان/i.test(lastUserMsg) && !isGeneralProductsInquiry;
         const textContent = aiContainer.textContent || '';
-        const mentionsRanikan = /رانیکان|ناوگان/i.test(textContent);
-        const asksOrSuggestsVideo = /(ویدیو|فیلم|دمو)/i.test(textContent);
+        const isMultiProductList = /[۲2]\s*[\.\-]/m.test(textContent) || (textContent.includes('مباه') && textContent.includes('بامداد'));
 
-        if (hasRanikanLink || (mentionsRanikan && (asksOrSuggestsVideo || textContent.length > 30))) {
-            detectedVideoHashes.add('hbv2985');
+        if (isDedicatedRanikan && !isMultiProductList && /رانیکان/i.test(textContent)) {
+            shownVideoHashesInChat.add('hbv2985');
             const videoCard = createVideoEmbedCard({
                 videoHash: 'hbv2985',
                 title: 'ویدیوی معرفی و دموی سامانه رانیکان',
