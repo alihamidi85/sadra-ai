@@ -39,11 +39,14 @@ const COMPANY_SYSTEM_PROMPT = `شما دستیار هوشمند و نمایند�
    - سوالات غیرمرتبط با شرکت (مثلاً «آب و هوا چطوره؟» یا «یک جوک بگو»):
      رد مؤدبانه و راهنمایی به حوزه شرکت طبق قانون مرزی بالا.
    - تنها در صورتی توضیحات مفصل یا فهرست ارائه دهید که کاربر صراحتاً خواسته باشد: «همه محصولات را نام ببر» یا «تاریخچه شرکت را کامل بگو».
-۳. ساجست (پیشنهاد) حتمی ویدیوی معرفی محصول:
-   - در وب‌سایت رسمی ایران‌کامپایل، در صفحه اختصاصی هر محصول، یک ویدیوی معرفی محصول ویدیویی، دموی تصویری، کاتالوگ و فرم مشاوره آنلاین وجود دارد.
-   - هر زمان که درباره هر یک از نرم‌افزارها و محصولات شرکت صحبت کردید یا محصولی را به کاربر معرفی کردید، در انتهای پاسخ حتماً با عبارتی جذاب و شیک به کاربر پیشنهاد دهید که ویدیوی معرفی این محصول را در صفحه مربوطه تماشا کند و لینک دقیق صفحه محصول را با فرمت مارک‌داون قرار دهید.
-   - نمونه نحوه ساجست ویدیو:
-     «🎬 **ویدیوی معرفی:** برای تماشای ویدیوی معرفی این سامانه، دموی تصویری و دریافت کاتالوگ می‌توانید به [صفحه نرم‌افزار در سایت ایران‌کامپایل](لینک_صفحه_محصول) مراجعه کنید.»
+۳. پخش و نمایش مستقیم ویدیوی معرفی و دموی محصول زیر پیام:
+   - کاربر صراحتاً خواسته است که ویدیوی معرفی محصول مستقیماً زیر پیام در چت نمایش داده شود، نه اینکه فقط یک لینک ساده فرستاده شود!
+   - بنابراین هر زمان که درباره نرم‌افزارهای شرکت (به خصوص سامانه رانیکان و سایر سامانه‌ها) توضیح می‌دهید یا کاربر درباره معرفی نرم‌افزارها سوال می‌پرسد:
+     ۱. توضیح متنی خود را در چند جمله شفاف، کاربردی و مفید بنویسید.
+     ۲. در انتهای پیام حتماً تگ ویدیو را به شکل زیر درج کنید تا پلیر ویدیو مستقیماً زیر پیام در صفحه بارگذاری شود:
+        [video:aparat:hbv2985:ویدیوی معرفی و دموی سامانه رانیکان]
+     (کد ویدیوی رسمی آپارات برای سامانه رانیکان و دموی سامانه‌های صدرا: `hbv2985` است).
+     ۳. همچنین می‌توانید لینک صفحه اختصاصی محصول در سایت ایران‌کامپایل را نیز برای دانلود کاتالوگ قرار دهید: [صفحه نرم‌افزار در ایران‌کامپایل](https://www.irancompile.com/product/show/1)
 ۴. لحن:
    - صمیمی، متین، کاملاً محترمانه، رسمی و در عین حال روان و انسانی.
 
@@ -338,13 +341,55 @@ function buildFullPreviewDocument(htmlContent, extraCss = '', extraJs = '') {
 }
 
 /**
- * ارتقای کدهای برنامه‌نویسی به کارت‌های دارای کپی و پیش‌نمایش
+ * ایجاد کارت پلیر ویدیوی معرفی آپارات درون پیام چت
  */
-function enhanceAiContent(body) {
+function createVideoEmbedCard({ videoHash, title, productUrl, aparatUrl }) {
+    const card = document.createElement('div');
+    card.className = 'chat-embedded-video-card';
+
+    const embedSrc = `https://www.aparat.com/video/video/embed/videohash/${encodeURIComponent(videoHash)}/vt/frame`;
+    const defaultProductUrl = productUrl || 'https://www.irancompile.com/product/show/1';
+    const defaultAparatUrl = aparatUrl || `https://www.aparat.com/v/${encodeURIComponent(videoHash)}`;
+    const displayTitle = title || 'ویدیوی معرفی و دموی محصول';
+
+    card.innerHTML = `
+        <div class="chat-video-card-header">
+            <div class="chat-video-card-title">
+                <i class="fa-solid fa-circle-play"></i>
+                <span>${escapeHtml(displayTitle)}</span>
+            </div>
+            <span class="chat-video-badge"><i class="fa-solid fa-play"></i> ویدیوی معرفی</span>
+        </div>
+        <div class="chat-video-frame-container">
+            <iframe 
+                src="${embedSrc}" 
+                title="${escapeHtml(displayTitle)}" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen="true" 
+                webkitallowfullscreen="true" 
+                mozallowfullscreen="true">
+            </iframe>
+        </div>
+        <div class="chat-video-card-footer">
+            <a href="${defaultProductUrl}" target="_blank" rel="noopener noreferrer" class="btn-video-footer-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> مشاهده صفحه محصول در ایران‌کامپایل
+            </a>
+            <a href="${defaultAparatUrl}" target="_blank" rel="noopener noreferrer" class="btn-video-footer-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> مشاهده در آپارات
+            </a>
+        </div>
+    `;
+    return card;
+}
+
+/**
+ * ارتقای کدهای برنامه‌نویسی و افزودن پلیر ویدیوی معرفی محصولات
+ */
+function enhanceAiContent(body, rawAccumulatedText) {
     const aiContainer = body.querySelector('.ai-text-container');
     if (!aiContainer) return;
 
-    // استایل‌دهی هوشمند به لینک‌های وب‌سایت و ویدیوی معرفی محصولات
+    // استایل‌دهی هوشمند به لینک‌های وب‌سایت و محصولات
     const links = Array.from(aiContainer.querySelectorAll('a'));
     links.forEach(link => {
         link.setAttribute('target', '_blank');
@@ -357,6 +402,52 @@ function enhanceAiContent(body) {
             }
         }
     });
+
+    // تشخیص و تعبیه مستقیم ویدیوی معرفی محصول زیر پیام چت
+    const detectedVideoHashes = new Set();
+    const fullRawContent = rawAccumulatedText || aiContainer.innerHTML || '';
+
+    // ۱. بررسی تگ صریح [video:aparat:HASH:TITLE] یا [aparat:HASH:TITLE]
+    const tagRegex = /\[(?:video:)?aparat:([a-zA-Z0-9_-]+)(?::([^\]]+))?\]/gi;
+    let match;
+    while ((match = tagRegex.exec(fullRawContent)) !== null) {
+        const hash = match[1];
+        const title = match[2] ? match[2].trim() : 'ویدیوی معرفی و دموی سامانه رانیکان';
+        if (!detectedVideoHashes.has(hash)) {
+            detectedVideoHashes.add(hash);
+            const videoCard = createVideoEmbedCard({ videoHash: hash, title });
+            body.appendChild(videoCard);
+        }
+    }
+
+    // ۲. بررسی لینک‌های صریح آپارات در متن
+    const aparatLinkRegex = /https?:\/\/(?:www\.)?aparat\.com\/(?:v\/|video\/video\/embed\/videohash\/)([a-zA-Z0-9_-]+)/gi;
+    while ((match = aparatLinkRegex.exec(fullRawContent)) !== null) {
+        const hash = match[1];
+        if (!detectedVideoHashes.has(hash)) {
+            detectedVideoHashes.add(hash);
+            const videoCard = createVideoEmbedCard({ videoHash: hash, title: 'ویدیوی معرفی و دموی محصول' });
+            body.appendChild(videoCard);
+        }
+    }
+
+    // ۳. پشتیبانی هوشمند در صورت صحبت درباره رانیکان یا ارجاع به صفحه محصول ۱
+    if (detectedVideoHashes.size === 0) {
+        const hasRanikanLink = links.some(l => (l.getAttribute('href') || '').includes('/product/show/1'));
+        const textContent = aiContainer.textContent || '';
+        const mentionsRanikan = /رانیکان|ناوگان/i.test(textContent);
+        const asksOrSuggestsVideo = /(ویدیو|فیلم|دمو)/i.test(textContent);
+
+        if (hasRanikanLink || (mentionsRanikan && (asksOrSuggestsVideo || textContent.length > 30))) {
+            detectedVideoHashes.add('hbv2985');
+            const videoCard = createVideoEmbedCard({
+                videoHash: 'hbv2985',
+                title: 'ویدیوی معرفی و دموی سامانه رانیکان',
+                productUrl: 'https://www.irancompile.com/product/show/1'
+            });
+            body.appendChild(videoCard);
+        }
+    }
 
     const preElements = Array.from(aiContainer.querySelectorAll('pre'));
     if (preElements.length === 0) return;
@@ -798,9 +889,11 @@ async function sendMessage() {
                         const step = distance > 100 ? 10 : (distance > 40 ? 5 : (distance > 15 ? 2 : 1));
                         displayedContent = accumulatedContent.slice(0, displayedContent.length + step);
 
+                        // هنگام استریم، تگ خام ویدیوی معرفی را پنهان نگه می‌داریم تا متن تمیز بماند
+                        const cleanStreamingText = displayedContent.replace(/\[(?:video:)?aparat:[^\]]+\]/gi, '');
                         const parsedHtml = (typeof marked !== 'undefined')
-                            ? marked.parse(displayedContent)
-                            : escapeHtml(displayedContent);
+                            ? marked.parse(cleanStreamingText)
+                            : escapeHtml(cleanStreamingText);
 
                         aiContainer.innerHTML = parsedHtml + '<span class="streaming-cursor"></span>';
                         scrollToBottom();
@@ -808,13 +901,14 @@ async function sendMessage() {
                         clearInterval(typewriterInterval);
                         typewriterInterval = null;
 
-                        // پایان رسمی استریم: حذف مکان‌نما، رندر نهایی و فعال‌سازی کارت‌های تعاملی
+                        // پایان رسمی استریم: حذف مکان‌نما، رندر نهایی و فعال‌سازی کارت‌های تعاملی و ویدیوی محصول
                         aiContainer.classList.remove('is-streaming');
+                        const cleanFinalText = accumulatedContent.replace(/\[(?:video:)?aparat:[^\]]+\]/gi, '');
                         const finalHtml = (typeof marked !== 'undefined')
-                            ? marked.parse(accumulatedContent)
-                            : escapeHtml(accumulatedContent);
+                            ? marked.parse(cleanFinalText)
+                            : escapeHtml(cleanFinalText);
                         aiContainer.innerHTML = finalHtml;
-                        enhanceAiContent(rowBody);
+                        enhanceAiContent(rowBody, accumulatedContent);
                         conversation.push({ role: 'assistant', content: accumulatedContent });
                         scrollToBottom();
                         resolve();
