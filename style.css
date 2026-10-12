@@ -396,6 +396,48 @@ a {
     text-shadow: 0 0 10px rgba(77, 208, 225, 0.5);
 }
 
+/* دکمه اختصاصی پیشنهاد ویدیوی معرفی محصول */
+.ai-text-container a.product-video-link,
+.chat-messages-container a.product-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 150, 136, 0.16);
+    border: 1px solid rgba(0, 150, 136, 0.45);
+    border-radius: 20px;
+    padding: 6px 14px;
+    margin: 6px 0;
+    color: #80cbc4 !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: none;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.ai-text-container a.product-video-link:hover,
+.chat-messages-container a.product-video-link:hover {
+    background: rgba(0, 150, 136, 0.32);
+    border-color: #26a69a;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 150, 136, 0.35);
+    text-shadow: 0 0 10px rgba(77, 208, 225, 0.6);
+}
+
+.ai-text-container a.product-video-link i,
+.chat-messages-container a.product-video-link i {
+    color: #4db6ac;
+    font-size: 1.05rem;
+    transition: transform 0.25s ease;
+}
+
+.ai-text-container a.product-video-link:hover i,
+.chat-messages-container a.product-video-link:hover i {
+    transform: scale(1.18);
+    color: #b2dfdb;
+}
+
 .ai-text-container code:not(pre code) {
     background: rgba(255, 255, 255, 0.08);
     color: #80cbc4;
