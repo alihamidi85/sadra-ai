@@ -438,6 +438,137 @@ a {
     color: #b2dfdb;
 }
 
+/* کارت پخش مستقیم ویدیوی معرفی محصول درون چت */
+.chat-embedded-video-card {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    background: #181b1e;
+    border: 1px solid rgba(0, 150, 136, 0.38);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(0, 150, 136, 0.14);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInVideoCard 0.4s ease-out;
+}
+
+@keyframes fadeInVideoCard {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-video-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: linear-gradient(90deg, rgba(0, 150, 136, 0.18), rgba(0, 77, 64, 0.25));
+    border-bottom: 1px solid rgba(0, 150, 136, 0.28);
+}
+
+.chat-video-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #e0f2f1;
+}
+
+.chat-video-card-title i {
+    color: #26a69a;
+    font-size: 1.15rem;
+    filter: drop-shadow(0 0 6px rgba(38, 166, 154, 0.7));
+}
+
+.chat-video-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239, 68, 68, 0.16);
+    border: 1px solid rgba(239, 68, 68, 0.38);
+    color: #fca5a5;
+    font-size: 0.76rem;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.chat-video-badge i {
+    color: #ef4444;
+}
+
+.chat-video-frame-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    overflow: hidden;
+}
+
+.chat-video-frame-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.chat-video-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn-video-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #80cbc4 !important;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none !important;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+    border-bottom: none !important;
+}
+
+.btn-video-footer-link:hover {
+    background: rgba(0, 150, 136, 0.22);
+    border-color: rgba(0, 150, 136, 0.55);
+    color: #ffffff !important;
+    text-shadow: none !important;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .chat-embedded-video-card {
+        max-width: 100%;
+    }
+    .chat-video-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-video-footer-link {
+        justify-content: center;
+    }
+}
+
 .ai-text-container code:not(pre code) {
     background: rgba(255, 255, 255, 0.08);
     color: #80cbc4;
@@ -974,118 +1105,4 @@ a {
     flex-shrink: 0;
 }
 
-.btn-submit-send:hover:not(:disabled) {
-    transform: scale(1.08);
-    background: #e0f2f1;
-}
-
-.btn-submit-send:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    background: #37393b;
-    color: #8e918f;
-}
-
-.footer-disclaimer {
-    font-size: 0.73rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: 10px;
-    pointer-events: auto;
-}
-
-/* کارت پیام خطا */
-.error-message-card {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #f87171;
-    padding: 12px 18px;
-    border-radius: 14px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 10px;
-    line-height: 1.6;
-}
-
-/* استایل‌های انیمیشن تایپ زنده و استریم کاراکتر به کاراکتر */
-.streaming-cursor {
-    display: inline-block;
-    width: 3px;
-    height: 1.15em;
-    background: #00897b;
-    margin-right: 4px;
-    vertical-align: -0.15em;
-    border-radius: 2px;
-    animation: cursorBlink 0.75s infinite ease-in-out;
-    box-shadow: 0 0 8px rgba(0, 137, 123, 0.8);
-}
-
-@keyframes cursorBlink {
-    0%, 100% { opacity: 1; transform: scaleY(1); }
-    50% { opacity: 0; transform: scaleY(0.7); }
-}
-
-.reasoning-live-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #80cbc4;
-    font-size: 0.82rem;
-}
-
-.reasoning-live-indicator i {
-    animation: brainSpin 2s linear infinite;
-    color: #26a69a;
-}
-
-@keyframes brainSpin {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); filter: drop-shadow(0 0 6px #26a69a); }
-    100% { transform: scale(1); }
-}
-
-.ai-text-container.is-streaming {
-    position: relative;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@media (max-width: 640px) {
-    .gemini-greeting {
-        font-size: 1.7rem;
-        margin-bottom: 12px;
-    }
-
-    .welcome-logo-img {
-        width: 170px;
-    }
-
-    .gemini-header {
-        padding: 10px 14px;
-    }
-
-    .header-brand-logo {
-        height: 34px;
-    }
-
-    .header-brand-title {
-        font-size: 0.92rem;
-    }
-
-    .gemini-input-wrapper {
-        padding: 50px 12px 16px;
-    }
-
-    .chat-messages-scroll {
-        padding: 16px 12px 210px;
-    }
-
-    .capsule-textarea {
-        font-size: 0.98rem;
-    }
-}
+.btn-submit-send:hover:not(:disabled) {\n    transform: scale(1.08);\n    background: #e0f2f1;\n}\n\n.btn-submit-send:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    background: #37393b;\n    color: #8e918f;\n}\n\n.footer-disclaimer {\n    font-size: 0.73rem;\n    color: var(--text-muted);\n    text-align: center;\n    margin-top: 10px;\n    pointer-events: auto;\n}\n\n/* کارت پیام خطا */\n.error-message-card {\n    background: rgba(239, 68, 68, 0.1);\n    border: 1px solid rgba(239, 68, 68, 0.3);\n    color: #f87171;\n    padding: 12px 18px;\n    border-radius: 14px;\n    font-size: 0.9rem;\n    display: flex;\n    align-items: flex-start;\n    gap: 10px;\n    margin-top: 10px;\n    line-height: 1.6;\n}\n\n/* استایل‌های انیمیشن تایپ زنده و استریم کاراکتر به کاراکتر */\n.streaming-cursor {\n    display: inline-block;\n    width: 3px;\n    height: 1.15em;\n    background: #00897b;\n    margin-right: 4px;\n    vertical-align: -0.15em;\n    border-radius: 2px;\n    animation: cursorBlink 0.75s infinite ease-in-out;\n    box-shadow: 0 0 8px rgba(0, 137, 123, 0.8);\n}\n\n@keyframes cursorBlink {\n    0%, 100% { opacity: 1; transform: scaleY(1); }\n    50% { opacity: 0; transform: scaleY(0.7); }\n}\n\n.reasoning-live-indicator {\n    display: inline-flex;\n    align-items: center;\n    gap: 6px;\n    color: #80cbc4;\n    font-size: 0.82rem;\n}\n\n.reasoning-live-indicator i {\n    animation: brainSpin 2s linear infinite;\n    color: #26a69a;\n}\n\n@keyframes brainSpin {\n    0% { transform: scale(1); }\n    50% { transform: scale(1.15); filter: drop-shadow(0 0 6px #26a69a); }\n    100% { transform: scale(1); }\n}\n\n.ai-text-container.is-streaming {\n    position: relative;\n}\n\n@keyframes fadeIn {\n    from { opacity: 0; }\n    to { opacity: 1; }\n}\n\n@media (max-width: 640px) {\n    .gemini-greeting {\n        font-size: 1.7rem;\n        margin-bottom: 12px;\n    }\n\n    .welcome-logo-img {\n        width: 170px;\n    }\n\n    .gemini-header {\n        padding: 10px 14px;\n    }\n\n    .header-brand-logo {\n        height: 34px;\n    }\n\n    .header-brand-title {\n        font-size: 0.92rem;\n    }\n\n    .gemini-input-wrapper {\n        padding: 50px 12px 16px;\n    }\n\n    .chat-messages-scroll {\n        padding: 16px 12px 210px;\n    }\n\n    .capsule-textarea {\n        font-size: 0.98rem;\n    }\n}\n
