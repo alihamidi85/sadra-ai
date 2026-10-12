@@ -42,11 +42,16 @@ const COMPANY_SYSTEM_PROMPT = `شما دستیار هوشمند و نمایند�
      رد مؤدبانه و راهنمایی به حوزه شرکت طبق قانون مرزی بالا.
    - تنها در صورتی توضیحات مفصل یا فهرست ارائه دهید که کاربر صراحتاً خواسته باشد: «همه محصولات را نام ببر» یا «تاریخچه شرکت را کامل بگو».
 ۳. قوانین حیاتی پخش و نمایش مستقیم ویدیوی معرفی محصول:
-   - نمایش انحصاری برای همان محصول: ویدیوی معرفی هر محصول (مثلاً رانیکان با کد hbv2985) فقط و فقط زمانی باید پیشنهاد و ارسال شود که سؤال کاربر مشخصاً و منحصراً پیرامون همان یک محصول باشد (مانند: «رانیکان چیه؟» یا درخواست ویدیوی معرفی/دموی رانیکان). اگر کاربر درباره کلیات شرکت، خدمات، یا کل محصولات به صورت عمومی پرسید («چه محصولاتی دارید؟»)، به هیچ وجه تگ ویدیو ارسال نکنید!
+   - نمایش انحصاری برای همان محصول: ویدیوی معرفی هر محصول فقط و فقط زمانی باید پیشنهاد و ارسال شود که سؤال کاربر مشخصاً و منحصراً پیرامون همان یک محصول باشد (مانند: «رانیکان چیه؟»، «مباه چیه؟»، «بامداد چیه؟» یا درخواست ویدیوی دموی آن‌ها). اگر کاربر درباره کلیات شرکت، خدمات، یا کل محصولات به صورت عمومی پرسید («چه محصولاتی دارید؟»)، به هیچ وجه تگ ویدیو ارسال نکنید!
    - قانون عدم تکرار در یک گفتگو (ارسال فقط ۱ بار): در طول یک گفتگو، ویدیوی هر محصول فقط و فقط یک بار ارسال می‌شود. اگر در پیام‌های قبلی همین چت ویدیوی محصول ارسال شده باشد، در پاسخ‌های بعدی (حتی اگر مجدداً سؤالی درباره همان محصول یا امکانات آن پرسیده شود) دیگر هرگز تگ ویدیو را تکرار نکنید؛ زیرا ویدیو در بالای صفحه برای کاربر در دسترس است و پاسخ متنی کفایت می‌کند.
-   - فرمت تگ ویدیو (تنها در صورت انطباق با هر دو شرط بالا):
-     [video:aparat:hbv2985:ویدیوی معرفی و دموی سامانه رانیکان]
-     (کد ویدیوی رسمی آپارات برای سامانه رانیکان: «hbv2985» است).
+   - کدهای ویدیوی رسمی آپارات برای محصولات دارای ویدیو و تگ مربوطه:
+     ۱. سامانه رانیکان (مدیریت ناوگان و نقلیه سازمانی): کد آپارات «hbv2985»
+        تگ: [video:aparat:hbv2985:ویدیوی معرفی و دموی سامانه رانیکان]
+     ۲. سامانه مباه (مدیریت بودجه، مالی و انبارداری با هوش مصنوعی): کد آپارات «nlk5na4»
+        تگ: [video:aparat:nlk5na4:ویدیوی معرفی و دموی سامانه مباه]
+     ۳. سامانه بامداد (مدیریت مدارس و مراکز آموزشی): کد آپارات «uhs9807»
+        تگ: [video:aparat:uhs9807:ویدیوی معرفی و دموی سامانه بامداد]
+   - هر زمان کاربر منحصراً درباره یکی از این سه سامانه سوال پرسید، تگ ویدیوی مربوط به همان محصول را در انتهای توضیح متنی خود درج نمایید (با رعایت قانون عدم تکرار).
 ۴. لحن:
    - صمیمی، متین، کاملاً محترمانه، رسمی و در عین حال روان و انسانی.
 
@@ -60,12 +65,12 @@ const COMPANY_SYSTEM_PROMPT = `شما دستیار هوشمند و نمایند�
 - تاریخچه مختصر: ۱۳۷۸ (آغاز با صدرا کامپیوتر در ساری، سخت‌افزار و شبکه)، ۱۳۹۲ (ایجاد برند ایران‌کامپایل و واحد نرم‌افزار)، ۱۳۹۷ (دانش‌بنیان شدن)، ۱۳۹۸ (سامانه جلسات برخط در دوران کرونا)، ۱۴۰۰ تا ۱۴۰۲ (پروژه‌های کلان استانداری مازندران).
 - خدمات ۷گانه: پورتال‌های سازمانی، نرم‌افزارهای اختصاصی، وب‌سایت‌های پیشرفته و سئو، اپلیکیشن‌های موبایل، توسعه وردپرس، امنیت DDoS، میزبانی ابری.
 - ۱۳ محصول رسمی ایران‌کامپایل و لینک صفحات دارای ویدیو و دمو:
-  ۱. رانیکان (کد ۱): مدیریت ناوگان و نقلیه سازمانی بر بستر اپلیکیشن موبایل رانندگان و ردیابی GPS -> https://www.irancompile.com/product/show/1
+  ۱. رانیکان (کد ۱): مدیریت ناوگان و نقلیه سازمانی بر بستر اپلیکیشن موبایل رانندگان و ردیابی GPS -> https://www.irancompile.com/product/show/1 (ویدیو آپارات: hbv2985)
   ۲. ویدئو کنفرانس برخط (کد ۲): بستر ارتباطات صوتی و تصویری آنلاین و جلسات مجازی بومی امن -> https://www.irancompile.com/product/show/2
   ۳. سامانه رفاهی (کد ۳): مدیریت و تخصیص امکانات و تسهیلات رفاهی کارکنان -> https://www.irancompile.com/product/show/3
-  ۴. بامداد (کد ۴): مدیریت مراکز آموزشی و مدارس (حضور و غیاب، نمرات، کارنامه، آزمون آنلاین) -> https://www.irancompile.com/product/show/4
+  ۴. بامداد (کد ۴): مدیریت مراکز آموزشی و مدارس (حضور و غیاب، نمرات، کارنامه، آزمون آنلاین) -> https://www.irancompile.com/product/show/4 (ویدیو آپارات: uhs9807)
   ۵. انتخابات صدرا (کد ۵): برگزاری مکانیزه انتخابات الکترونیک با رمز یکبار مصرف OTP و سیستم ضد تقلب -> https://www.irancompile.com/product/show/5
-  ۶. مباه (کد ۶): مدیریت بودجه، مالی و انبارداری با هوش مصنوعی (پیاده‌سازی شده در استانداری مازندران) -> https://www.irancompile.com/product/show/6
+  ۶. مباه (کد ۶): مدیریت بودجه، مالی و انبارداری با هوش مصنوعی (پیاده‌سازی شده در استانداری مازندران) -> https://www.irancompile.com/product/show/6 (ویدیو آپارات: nlk5na4)
   ۷. مدیریت جلسات (کد ۷): ثبت درخواست، هماهنگی تقویم و صورت‌جلسات الکترونیکی -> https://www.irancompile.com/product/show/7
   ۸. پژوهش سازمانی (کد ۸): ثبت و ارزیابی پروپوزال‌های پژوهشی و ارتباط با نخبگان -> https://www.irancompile.com/product/show/8
   ۹. مدیریت مصوبات (کد ۹): پایش و رهگیری خط‌به‌خط مصوبات جلسات اداری -> https://www.irancompile.com/product/show/9
@@ -342,6 +347,28 @@ function buildFullPreviewDocument(htmlContent, extraCss = '', extraJs = '') {
 </html>`;
 }
 
+// نقشه و کاتالوگ ویدیوهای رسمی محصولات ایران‌کامپایل در آپارات
+const PRODUCT_VIDEOS = {
+    'hbv2985': {
+        hash: 'hbv2985',
+        title: 'ویدیوی معرفی و دموی سامانه رانیکان',
+        keywords: /رانیکان|ناوگان/i,
+        productUrl: 'https://www.irancompile.com/product/show/1'
+    },
+    'nlk5na4': {
+        hash: 'nlk5na4',
+        title: 'ویدیوی معرفی و دموی سامانه مباه',
+        keywords: /مباه|بودجه|انبارداری/i,
+        productUrl: 'https://www.irancompile.com/product/show/6'
+    },
+    'uhs9807': {
+        hash: 'uhs9807',
+        title: 'ویدیوی معرفی و دموی سامانه بامداد',
+        keywords: /بامداد|مدارس|مراکز آموزشی/i,
+        productUrl: 'https://www.irancompile.com/product/show/4'
+    }
+};
+
 /**
  * ایجاد کارت پلیر ویدیوی معرفی آپارات درون پیام چت
  */
@@ -350,9 +377,9 @@ function createVideoEmbedCard({ videoHash, title, productUrl, aparatUrl }) {
     card.className = 'chat-embedded-video-card';
 
     const embedSrc = `https://www.aparat.com/video/video/embed/videohash/${encodeURIComponent(videoHash)}/vt/frame`;
-    const defaultProductUrl = productUrl || 'https://www.irancompile.com/product/show/1';
+    const defaultProductUrl = productUrl || (PRODUCT_VIDEOS[videoHash]?.productUrl || 'https://www.irancompile.com/products');
     const defaultAparatUrl = aparatUrl || `https://www.aparat.com/v/${encodeURIComponent(videoHash)}`;
-    const displayTitle = title || 'ویدیوی معرفی و دموی محصول';
+    const displayTitle = title || (PRODUCT_VIDEOS[videoHash]?.title || 'ویدیوی معرفی و دموی محصول');
 
     card.innerHTML = `
         <div class="chat-video-card-header">
@@ -413,10 +440,11 @@ function enhanceAiContent(body, rawAccumulatedText) {
     let match;
     while ((match = tagRegex.exec(fullRawContent)) !== null) {
         const hash = match[1];
-        const title = match[2] ? match[2].trim() : 'ویدیوی معرفی و دموی سامانه رانیکان';
+        const title = (match[2] && match[2].trim()) ? match[2].trim() : (PRODUCT_VIDEOS[hash]?.title || 'ویدیوی معرفی و دموی محصول');
+        const productUrl = PRODUCT_VIDEOS[hash]?.productUrl || 'https://www.irancompile.com/products';
         if (!shownVideoHashesInChat.has(hash)) {
             shownVideoHashesInChat.add(hash);
-            const videoCard = createVideoEmbedCard({ videoHash: hash, title });
+            const videoCard = createVideoEmbedCard({ videoHash: hash, title, productUrl });
             body.appendChild(videoCard);
         }
     }
@@ -425,29 +453,37 @@ function enhanceAiContent(body, rawAccumulatedText) {
     const aparatLinkRegex = /https?:\/\/(?:www\.)?aparat\.com\/(?:v\/|video\/video\/embed\/videohash\/)([a-zA-Z0-9_-]+)/gi;
     while ((match = aparatLinkRegex.exec(fullRawContent)) !== null) {
         const hash = match[1];
+        const title = PRODUCT_VIDEOS[hash]?.title || 'ویدیوی معرفی و دموی محصول';
+        const productUrl = PRODUCT_VIDEOS[hash]?.productUrl || 'https://www.irancompile.com/products';
         if (!shownVideoHashesInChat.has(hash)) {
             shownVideoHashesInChat.add(hash);
-            const videoCard = createVideoEmbedCard({ videoHash: hash, title: 'ویدیوی معرفی و دموی محصول' });
+            const videoCard = createVideoEmbedCard({ videoHash: hash, title, productUrl });
             body.appendChild(videoCard);
         }
     }
 
-    // ۳. پشتیبانی هوشمند (فقط در صورتی که بحث منحصراً پیرامون رانیکان باشد و قبلاً در چت نشان داده نشده باشد)
-    if (!shownVideoHashesInChat.has('hbv2985')) {
-        const lastUserMsg = (conversation.slice().reverse().find(m => m.role === 'user')?.content || '').trim();
-        const isGeneralProductsInquiry = /چه محصولاتی|محصولات دارید|لیست محصولات|تمام محصولات|همه محصولات|معرفی محصولات|کاتالوگ/i.test(lastUserMsg);
-        const isDedicatedRanikan = /رانیکان/i.test(lastUserMsg) && !isGeneralProductsInquiry;
-        const textContent = aiContainer.textContent || '';
-        const isMultiProductList = /[۲2]\s*[\.\-]/m.test(textContent) || (textContent.includes('مباه') && textContent.includes('بامداد'));
+    // ۳. پشتیبانی هوشمند (در صورتی که بحث منحصراً پیرامون یکی از سامانه‌های دارای ویدیو باشد و قبلاً در چت نشان داده نشده باشد)
+    const lastUserMsg = (conversation.slice().reverse().find(m => m.role === 'user')?.content || '').trim();
+    const isGeneralProductsInquiry = /چه محصولاتی|محصولات دارید|لیست محصولات|تمام محصولات|همه محصولات|معرفی محصولات|کاتالوگ/i.test(lastUserMsg);
+    const textContent = aiContainer.textContent || '';
+    const isMultiProductList = /[۲2]\s*[\.\-]/m.test(textContent) || (textContent.includes('مباه') && textContent.includes('بامداد') && textContent.includes('رانیکان'));
 
-        if (isDedicatedRanikan && !isMultiProductList && /رانیکان/i.test(textContent)) {
-            shownVideoHashesInChat.add('hbv2985');
-            const videoCard = createVideoEmbedCard({
-                videoHash: 'hbv2985',
-                title: 'ویدیوی معرفی و دموی سامانه رانیکان',
-                productUrl: 'https://www.irancompile.com/product/show/1'
-            });
-            body.appendChild(videoCard);
+    if (!isGeneralProductsInquiry && !isMultiProductList) {
+        for (const [vHash, vInfo] of Object.entries(PRODUCT_VIDEOS)) {
+            if (!shownVideoHashesInChat.has(vHash)) {
+                const userAskedForThisProduct = vInfo.keywords.test(lastUserMsg);
+                const responseMentionsThisProduct = vInfo.keywords.test(textContent);
+                if (userAskedForThisProduct && responseMentionsThisProduct) {
+                    shownVideoHashesInChat.add(vHash);
+                    const videoCard = createVideoEmbedCard({
+                        videoHash: vHash,
+                        title: vInfo.title,
+                        productUrl: vInfo.productUrl
+                    });
+                    body.appendChild(videoCard);
+                    break;
+                }
+            }
         }
     }
 
