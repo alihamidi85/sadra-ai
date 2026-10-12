@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>دستیار صدرا | Sadra AI</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- فونت فارسی وزیرمتن و Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- آیکون‌ها و استایل هایلایت کد -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <!-- استایل اصلی برنامه -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- هاله نورانی مرکز صفحه -->
+    <div class="ambient-glow"></div>
+
+    <div class="gemini-app">
+        <!-- هدر بالای صفحه -->
+        <header class="gemini-header">
+            <div class="header-left">
+                <button type="button" class="btn-new-chat" id="btnNewChat">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>چت جدید</span>
+                </button>
+            </div>
+
+            <div class="header-right">
+                <div class="brand-logo-container" title="کامپیوتر صدرا">
+                    <span class="header-brand-title"></span>
+                    <img src="logo.png" alt="کامپیوتر صدرا" class="header-brand-logo">
+                </div>
+            </div>
+        </header>
+
+        <!-- بخش اصلی محتوا -->
+        <main class="gemini-main" id="geminiMain">
+            <!-- صفحه اول: لوگو و پیام خوش‌آمدگویی -->
+            <div class="welcome-view" id="welcomeView">
+                <div class="welcome-logo-wrapper">
+                    <img src="logo.png" alt="کامپیوتر صدرا" class="welcome-logo-img">
+                </div>
+                <h1 class="gemini-greeting">چطور می‌توانم به شما کمک کنم؟</h1>
+                <p class="welcome-subtitle">دستیار هوشمند اختصاصی صدرا کامپیوتر</p>
+            </div>
+
+            <!-- پیام‌های چت -->
+            <div class="chat-messages-scroll" id="chatMessagesScroll">
+                <div class="chat-messages-container" id="chatMessagesContainer">
+                    <!-- پیام‌ها به صورت پویا در جاوااسکریپت اضافه می‌شوند -->
+                </div>
+            </div>
+
+            <!-- کپسول ورودی شناور -->
+            <div class="gemini-input-wrapper" id="geminiInputWrapper">
+                <div class="gemini-capsule">
+                    <div class="capsule-main-row">
+                        <button type="button" class="btn-capsule-icon" id="btnQuickPrompt" title="نمونه سوالات">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </button>
+                        <textarea class="capsule-textarea" id="chatInput" rows="1"
+                            placeholder="پیامی برای هوش مصنوعی صدرا بنویسید..."></textarea>
+                    </div>
+
+                    <div class="capsule-bottom-row">
+                        <div class="capsule-bottom-left">
+                            <button type="button" class="btn-submit-send" id="btnSend" title="ارسال پیام" disabled>
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </button>
+                        </div>
+
+                        <div class="capsule-bottom-right">
+                            <div class="sadra-badge" title="سامانه هوشمند صدرا کامپیوتر">
+                                <span class="live-status-indicator"></span>
+                                <span>Sadra AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-disclaimer">
+                    پاسخ‌های تولید شده توسط هوش مصنوعی نیاز به راستی‌آزمایی دارند.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- مدال پیش‌نمایش زنده کد -->
+    <div class="preview-modal-backdrop" id="previewModalBackdrop" style="display: none;">
+        <div class="preview-modal-dialog">
+            <div class="preview-modal-header">
+                <div class="preview-modal-title">
+                    <i class="fa-solid fa-eye" style="color: var(--gemini-blue);"></i>
+                    <span>پیش‌نمایش زنده خروجی (Live Preview)</span>
+                </div>
+                <div class="preview-device-switcher">
+                    <button type="button" class="btn-device-size active" data-size="100%" title="نمای کامل دسکتاپ">
+                        <i class="fa-solid fa-laptop"></i> دسکتاپ
+                    </button>
+                    <button type="button" class="btn-device-size" data-size="768px" title="نمای تبلت">
+                        <i class="fa-solid fa-tablet-screen-button"></i> تبلت
+                    </button>
+                    <button type="button" class="btn-device-size" data-size="375px" title="نمای موبایل">
+                        <i class="fa-solid fa-mobile-screen"></i> موبایل
+                    </button>
+                </div>
+                <div class="preview-modal-actions">
+                    <button type="button" class="btn-modal-action" id="btnRefreshModalIframe" title="بارگذاری مجدد">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button type="button" class="btn-modal-action" id="btnClosePreviewModal" title="بستن (Esc)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="preview-modal-body">
+                <div class="preview-modal-iframe-wrapper" id="previewModalIframeWrapper">
+                    <iframe id="previewModalIframe" sandbox="allow-scripts allow-modals"
+                        title="Modal Live Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- اسکریپت‌های کتابخانه‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- منطق برنامه جاوااسکریپت -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
